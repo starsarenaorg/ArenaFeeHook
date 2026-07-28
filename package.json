@@ -1,0 +1,19 @@
+{
+  "name": "arena-fee-hook",
+  "version": "1.0.0",
+  "description": "Source disclosure and reproducible build for the Stars Arena Uniswap v4 fee hook on Robinhood Chain",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "hardhat clean",
+    "compile": "hardhat compile"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "5.0.0",
+    "@uniswap/v4-core": "1.0.2",
+    "@uniswap/v4-periphery": "1.0.3",
+    "hardhat": "2.26.3",
+    "solc": "0.8.30"
+  },
+  "packageManager": "pnpm@9.12.1"
+}
