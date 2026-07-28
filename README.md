@@ -34,8 +34,11 @@ Robinhood Chain at block `21,368,136` on July 28, 2026.
 | Uniswap v4 PositionManager | [`0x58daec3116aae6D93017bAAea7749052E8a04fA7`](https://robinhoodchain.blockscout.com/address/0x58daec3116aae6D93017bAAea7749052E8a04fA7) |
 | Uniswap Universal Router | [`0x8876789976dEcBfCbBbe364623C63652db8C0904`](https://robinhoodchain.blockscout.com/address/0x8876789976dEcBfCbBbe364623C63652db8C0904) |
 
-The hook, hook factory, fee helper, and authorized pool deployer are fully
-source-verified on Blockscout. None of those four deployments is a proxy.
+The hook, hook factory, fee helper, authorized pool deployer, and referral
+registry are fully source-verified on Blockscout. None of those five
+deployments is a proxy. The Robinhood Uniswap `PoolManager`,
+`PositionManager`, and `UniversalRouter` are explorer-verified, but Blockscout
+currently marks those external protocol deployments as partially verified.
 
 ### Hook deployment parameters
 
@@ -208,8 +211,10 @@ The top-level hook source in this repository is identical to the source
 published for the verified production deployment.
 
 A clean compile of this repository was compared with live runtime bytecode.
-The hook matches after accounting for its constructor-set PoolManager
-immutables; the factory and fee helper match byte-for-byte.
+The hook and pool deployer match after accounting for their constructor-set
+immutables; the factory, fee helper, and referral registry match byte-for-byte.
+All five Stars Arena-owned contracts are also independently source-verified on
+Blockscout.
 
 ## Source layout
 
@@ -219,9 +224,13 @@ contracts/
     ├── RobinhoodArenaFeeHook.sol
     ├── RobinhoodArenaFeeHookFactory.sol
     ├── RobinhoodArenaFeeHelper.sol
+    ├── RobinhoodArenaFeePoolDeployer.sol
+    ├── RobinhoodArenaReferralRegistry.sol
     ├── interfaces/
-    │   └── IArenaFeeHelperMinimal.sol
+    │   ├── IArenaFeeHelperMinimal.sol
+    │   └── IArenaPoolDeployer.sol
     └── libraries/
+        ├── ArenaLiquidityAmounts.sol
         ├── RobinhoodBaseHookFee.sol
         └── RobinhoodCurrencySettler.sol
 ```
