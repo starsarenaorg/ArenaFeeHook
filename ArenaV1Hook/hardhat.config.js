@@ -29,12 +29,12 @@ module.exports = {
         enabled: true,
         runs: 200
       },
-      viaIR: true,
+      viaIR: false,
       evmVersion: "cancun"
     }
   },
   paths: {
-    sources: "./contractsV2/contracts",
+    sources: "./contracts",
     cache: "./cache",
     artifacts: "./artifacts"
   }
